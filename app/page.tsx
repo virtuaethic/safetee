@@ -2,22 +2,72 @@ import Image from "next/image"
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
 import { Preloader } from '../components/Preloader'
+import { TextReveal } from '../components/ui/text-reveal'
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Preloader />
+      
       {/* Hero Section */}
       <section className="bg-[#001b4e] text-white py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <Image src="/placeholder.svg?height=800&width=1600" alt="Map background" fill className="object-cover" />
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl">
+            <TextReveal className="text-5xl font-bold mb-8">
+              Unsere Mission
+            </TextReveal>
+            <TextReveal className="text-3xl font-medium">
+              Innovative Sicherheitskonzepte für Arbeitssicherheit!
+            </TextReveal>
+          </div>
         </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-light tracking-wider mb-8">HISTORIE</h1>
-          <p className="max-w-3xl mx-auto text-center text-lg">
-            Die SAFETEE GmbH blickt auf eine lange, erfolgreiche Unternehmensgeschichte zurück. Gehen Sie mit uns auf
-            eine Zeitreise zu den Meilensteinen, die uns geprägt haben.
+      </section>
+
+      {/* Features Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Feature 1 */}
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-4">Sicherheit</h3>
+              <p className="text-gray-600">
+                Maximale Sicherheit durch innovative Konzepte und modernste Technologien.
+              </p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-4">Effizienz</h3>
+              <p className="text-gray-600">
+                Optimierte Prozesse für höchste Effizienz und Produktivität.
+              </p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-4">Innovation</h3>
+              <p className="text-gray-600">
+                Kontinuierliche Weiterentwicklung und zukunftsweisende Lösungen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-[#001b4e] text-white py-24">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-8">Bereit für die Zukunft?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Lassen Sie uns gemeinsam Ihre Sicherheitskonzepte optimieren.
           </p>
+          <Link 
+            href="/contact" 
+            className="inline-flex items-center bg-[#cc000f] text-white px-8 py-4 rounded-lg hover:bg-[#a3000d] transition-colors"
+          >
+            Kontakt aufnehmen
+            <ChevronRight className="ml-2" />
+          </Link>
         </div>
       </section>
 
