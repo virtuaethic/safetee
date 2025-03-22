@@ -14,8 +14,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="de">
-      <body className="antialiased">{children}</body>
+    <html lang="en">
+      <body className={`${bertholdAkzidenz.variable} ${avantgarde.variable}`}>
+        {children}
+      </body>
     </html>
   )
 }

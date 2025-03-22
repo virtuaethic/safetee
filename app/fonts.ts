@@ -13,7 +13,7 @@ export const bertholdAkzidenz = localFont({
       style: 'normal',
     },
     {
-      path: '../public/fonts/Berthold Akzidenz Grotesk Extended.ttf',
+      path: '../public/fonts/Berthold-Akzidenz-Grotesk-Extended.ttf',
       weight: '400',
       style: 'normal',
     },
