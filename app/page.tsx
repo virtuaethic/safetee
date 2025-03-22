@@ -11,9 +11,9 @@ export default function Home() {
           <Image
             src="/Logo.svg"
             alt="SAFETEE Logo"
-            width={268}
-            height={32}
-            className="h-8"
+            width={180}
+            height={40}
+            className="h-10"
           />
         </div>
         <div className="flex items-center gap-4">
@@ -27,8 +27,33 @@ export default function Home() {
             />
             <span className="font-medium">Navigation</span>
           </button>
-          <button className="text-white flex items-center">
+          <button className="text-white flex items-center group relative">
+            <Image 
+              src="/images/icons/ui/lang-de.svg"
+              alt="Deutsch"
+              width={20}
+              height={20}
+              className="mr-2"
+            />
             <span className="mr-1">De</span>
+            <div className="absolute top-full right-0 mt-2 bg-white rounded shadow-lg hidden group-hover:block min-w-[120px]">
+              <div className="py-1">
+                <button className="w-full text-left px-4 py-2 text-[#001b4e] hover:bg-gray-100 flex items-center">
+                  <Image 
+                    src="/images/icons/ui/lang-de.svg"
+                    alt="Deutsch"
+                    width={20}
+                    height={20}
+                    className="mr-2"
+                  />
+                  <span>Deutsch</span>
+                </button>
+                <button className="w-full text-left px-4 py-2 text-[#001b4e] hover:bg-gray-100 flex items-center">
+                  <span className="mr-2">🇬🇧</span>
+                  <span>English</span>
+                </button>
+              </div>
+            </div>
           </button>
         </div>
       </header>
