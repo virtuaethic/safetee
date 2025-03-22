@@ -13,12 +13,7 @@ export const bertholdAkzidenz = localFont({
       style: 'normal',
     },
     {
-      path: '../public/fonts/Berthold Akzidenz Grotesk Extended.ttf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/Berthold-Akzidenz-Grotesk-Extended.eot',
+      path: '../public/fonts/Berthold-Akzidenz-Grotesk-Extended.ttf',
       weight: '400',
       style: 'normal',
     }
@@ -45,11 +40,6 @@ export const avantgarde = localFont({
       style: 'normal',
     },
     {
-      path: '../public/fonts/Avantgarde.eot',
-      weight: '400',
-      style: 'normal',
-    },
-    {
       path: '../public/fonts/Avantgarde.otf',
       weight: '400',
       style: 'normal',
@@ -66,11 +56,6 @@ export const avantgarde = localFont({
     },
     {
       path: '../public/fonts/Avantgarde-Bold.ttf',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/Avantgarde-Bold.eot',
       weight: '700',
       style: 'normal',
     },
