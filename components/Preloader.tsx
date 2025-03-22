@@ -9,31 +9,22 @@ export const Preloader = () => {
   const preloaderRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLElement>(null);
-  const cubeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Initially hide the header
     if (headerRef.current) {
-      gsap.set(headerRef.current, { 
-        opacity: 0,
-        y: -100
-      });
-    }
-
-    // Set initial 3D perspective and cube position
-    if (cubeRef.current) {
-      gsap.set(cubeRef.current, {
-        perspective: 1000,
-        transformStyle: 'preserve-3d'
-      });
+      gsap.set(headerRef.current, { opacity: 0 });
     }
 
     // Set timeout for preloader
     const timer = setTimeout(() => {
       setIsLoading(false);
       
-      // Create the cube rotation animation
-      const tl = gsap.timeline({
+      // Animate preloader out
+      gsap.to(preloaderRef.current, {
+        opacity: 0,
+        duration: 1,
+        ease: 'power2.inOut',
         onComplete: () => {
           // Start playing hero video
           const heroVideo = heroRef.current?.querySelector('video');
@@ -43,32 +34,11 @@ export const Preloader = () => {
         }
       });
 
-      // Animate the cube rotation
-      tl.to(cubeRef.current, {
-        rotationY: 90,
-        duration: 2,
-        ease: 'power2.inOut',
-        onUpdate: () => {
-          // Update video opacity based on rotation
-          const rotation = gsap.getProperty(cubeRef.current, 'rotationY') as number;
-          const preloaderOpacity = Math.cos(rotation * Math.PI / 180);
-          const heroOpacity = Math.sin(rotation * Math.PI / 180);
-          
-          if (preloaderRef.current) {
-            gsap.set(preloaderRef.current, { opacity: preloaderOpacity });
-          }
-          if (heroRef.current) {
-            gsap.set(heroRef.current, { opacity: heroOpacity });
-          }
-        }
-      });
-
-      // Start header animation
+      // Start header animation 2 seconds earlier
       gsap.to(headerRef.current, {
         opacity: 1,
-        y: 0,
         duration: 1,
-        delay: -1.5,
+        delay: -1.5, // Start 1.5 seconds before preloader fade completes
         ease: 'power2.out'
       });
     }, 5000);
@@ -78,39 +48,18 @@ export const Preloader = () => {
 
   return (
     <>
-      {/* 3D Cube Container */}
+      {/* Preloader Video */}
       <div 
-        ref={cubeRef}
-        className="fixed inset-0"
+        ref={preloaderRef}
+        className="fixed inset-0 z-50 bg-black"
       >
-        {/* Preloader Video (Front face) */}
-        <div 
-          ref={preloaderRef}
-          className="absolute inset-0 z-50 bg-black"
-          style={{ transform: 'translateZ(0)' }}
-        >
-          <video
-            className="h-full w-full object-cover"
-            src="/videos/safetee-preloader.mp4"
-            autoPlay
-            muted
-            playsInline
-          />
-        </div>
-
-        {/* Hero Video (Right face) */}
-        <div 
-          ref={heroRef}
-          className="absolute inset-0"
-          style={{ transform: 'rotateY(90deg) translateZ(0)' }}
-        >
-          <video
-            className="absolute inset-0 h-full w-full object-cover"
-            src="/videos/home-hero.mov"
-            muted
-            playsInline
-          />
-        </div>
+        <video
+          className="h-full w-full object-cover"
+          src="/videos/safetee-preloader.mp4"
+          autoPlay
+          muted
+          playsInline
+        />
       </div>
 
       {/* Header */}
@@ -168,6 +117,19 @@ export const Preloader = () => {
           </button>
         </div>
       </header>
+
+      {/* Hero Video */}
+      <div 
+        ref={heroRef}
+        className="relative h-screen w-full overflow-hidden"
+      >
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/videos/home-hero.mov"
+          muted
+          playsInline
+        />
+      </div>
     </>
   );
 }; 
