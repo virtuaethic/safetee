@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Header */}
-      <header className="bg-[#001b4e] p-4 flex justify-between items-center">
+      <header className="fixed top-0 left-0 right-0 bg-[#001b4e]/80 backdrop-blur-sm p-4 flex justify-between items-center z-50">
         <div className="flex items-center">
           <Image
             src="/Logo.svg"
