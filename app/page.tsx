@@ -1,63 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
+import { Preloader } from '../components/Preloader'
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 p-4 flex justify-between items-center z-50">
-        <div className="flex items-center">
-          <Image
-            src="/Logo.svg"
-            alt="SAFETEE Logo"
-            width={268}
-            height={32}
-            className="h-8"
-          />
-        </div>
-        <div className="flex items-center gap-4">
-          <button className="bg-[#cc000f] text-white px-4 py-2 rounded flex items-center">
-            <Image 
-              src="/images/icons/ui/menu-burger.svg"
-              alt="Menu"
-              width={24}
-              height={24}
-              className="w-6 h-6 mr-2"
-            />
-            <span className="font-medium">Navigation</span>
-          </button>
-          <button className="text-white flex items-center group relative">
-            <Image 
-              src="/images/icons/ui/lang-de.svg"
-              alt="Deutsch"
-              width={20}
-              height={20}
-              className="mr-2"
-            />
-            <span className="mr-1">De</span>
-            <div className="absolute top-full right-0 mt-2 bg-white rounded shadow-lg hidden group-hover:block min-w-[120px]">
-              <div className="py-1">
-                <button className="w-full text-left px-4 py-2 text-[#001b4e] hover:bg-gray-100 flex items-center">
-                  <Image 
-                    src="/images/icons/ui/lang-de.svg"
-                    alt="Deutsch"
-                    width={20}
-                    height={20}
-                    className="mr-2"
-                  />
-                  <span>Deutsch</span>
-                </button>
-                <button className="w-full text-left px-4 py-2 text-[#001b4e] hover:bg-gray-100 flex items-center">
-                  <span className="mr-2">🇬🇧</span>
-                  <span>English</span>
-                </button>
-              </div>
-            </div>
-          </button>
-        </div>
-      </header>
-
+      <Preloader />
       {/* Hero Section */}
       <section className="bg-[#001b4e] text-white py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-30">
