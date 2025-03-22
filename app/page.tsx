@@ -18,16 +18,23 @@ export default function Home() {
         </div>
         <div className="flex items-center gap-4">
           <button className="bg-[#cc000f] text-white px-4 py-2 rounded flex items-center">
-            <span className="mr-2">Navigation</span>
             <Image 
               src="/images/icons/ui/menu-burger.svg"
               alt="Menu"
               width={24}
               height={24}
-              className="w-6 h-6"
+              className="w-6 h-6 mr-2"
             />
+            <span className="font-medium">Navigation</span>
           </button>
           <button className="text-white flex items-center">
+            <Image 
+              src="/images/icons/ui/lang-de.svg"
+              alt="Deutsch"
+              width={20}
+              height={20}
+              className="mr-2"
+            />
             <span className="mr-1">De</span>
           </button>
         </div>
