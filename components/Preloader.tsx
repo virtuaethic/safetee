@@ -13,7 +13,10 @@ export const Preloader = () => {
   useEffect(() => {
     // Initially hide the header
     if (headerRef.current) {
-      gsap.set(headerRef.current, { opacity: 0 });
+      gsap.set(headerRef.current, { 
+        opacity: 0,
+        y: -100 // Start position above the viewport
+      });
     }
 
     // Set timeout for preloader
@@ -37,6 +40,7 @@ export const Preloader = () => {
       // Start header animation 2 seconds earlier
       gsap.to(headerRef.current, {
         opacity: 1,
+        y: 0, // Animate to original position
         duration: 1,
         delay: -1.5, // Start 1.5 seconds before preloader fade completes
         ease: 'power2.out'
