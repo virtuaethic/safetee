@@ -31,15 +31,15 @@ export const Preloader = () => {
           if (heroVideo) {
             heroVideo.play();
           }
-          
-          // Reveal the header with a slight delay
-          gsap.to(headerRef.current, {
-            opacity: 1,
-            duration: 1,
-            delay: 0.5,
-            ease: 'power2.out'
-          });
         }
+      });
+
+      // Start header animation 2 seconds earlier
+      gsap.to(headerRef.current, {
+        opacity: 1,
+        duration: 1,
+        delay: -1.5, // Start 1.5 seconds before preloader fade completes
+        ease: 'power2.out'
       });
     }, 5000);
 
