@@ -11,9 +11,9 @@ export default function Home() {
           <Image
             src="/Logo.svg"
             alt="SAFETEE Logo"
-            width={180}
-            height={40}
-            className="h-10"
+            width={268}
+            height={32}
+            className="h-8"
           />
         </div>
         <div className="flex items-center gap-4">
@@ -28,13 +28,6 @@ export default function Home() {
             <span className="font-medium">Navigation</span>
           </button>
           <button className="text-white flex items-center">
-            <Image 
-              src="/images/icons/ui/lang-de.svg"
-              alt="Deutsch"
-              width={20}
-              height={20}
-              className="mr-2"
-            />
             <span className="mr-1">De</span>
           </button>
         </div>
