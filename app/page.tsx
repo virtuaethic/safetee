@@ -6,14 +6,14 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-[#001b4e]/80 backdrop-blur-sm p-4 flex justify-between items-center z-50">
+      <header className="fixed top-0 left-0 right-0 p-4 flex justify-between items-center z-50">
         <div className="flex items-center">
           <Image
             src="/Logo.svg"
             alt="SAFETEE Logo"
-            width={180}
-            height={40}
-            className="h-10"
+            width={268}
+            height={32}
+            className="h-8"
           />
         </div>
         <div className="flex items-center gap-4">
