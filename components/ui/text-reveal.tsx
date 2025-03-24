@@ -22,21 +22,23 @@ export const TextReveal = ({ children, className = '' }: TextRevealProps) => {
     const originalText = text.textContent || '';
     text.textContent = '';
     
-    // Create spans for each character
-    originalText.split('').forEach((char, i) => {
+    // Split text into words and spaces
+    const words = originalText.split(/(\s+)/);
+    
+    words.forEach((word, i) => {
       const span = document.createElement('span');
-      span.textContent = char;
+      span.textContent = word;
       span.style.opacity = '0';
       span.style.display = 'inline-block';
-      span.style.transform = 'translateY(20px)';
+      span.style.transform = 'translateY(30px)';
       text.appendChild(span);
 
       gsap.to(span, {
         opacity: 1,
         y: 0,
-        duration: 0.5,
-        delay: i * 0.05,
-        ease: 'power2.out',
+        duration: 0.8,
+        delay: i * 0.1,
+        ease: 'power3.out',
         scrollTrigger: {
           trigger: text,
           start: 'top 80%',

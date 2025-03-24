@@ -12,13 +12,13 @@ export default function Home() {
       {/* Content Container */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center text-white py-24 relative">
+        <section className="min-h-screen flex items-center justify-center text-white py-24 relative">
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-3xl opacity-0" id="hero-content">
-              <TextReveal className="text-5xl font-bold mb-8">
+            <div className="max-w-4xl mx-auto text-center opacity-0" id="hero-content">
+              <TextReveal className="text-6xl md:text-7xl font-bold mb-12 tracking-tight">
                 Unsere Mission
               </TextReveal>
-              <TextReveal className="text-3xl font-medium">
+              <TextReveal className="text-3xl md:text-4xl font-medium tracking-wide">
                 Innovative Sicherheitskonzepte für Arbeitssicherheit!
               </TextReveal>
             </div>
