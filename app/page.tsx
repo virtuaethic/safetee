@@ -6,70 +6,73 @@ import { TextReveal } from '../components/ui/text-reveal'
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="relative min-h-screen">
       <Preloader />
       
-      {/* Hero Section */}
-      <section className="bg-[#001b4e] text-white py-24 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <TextReveal className="text-5xl font-bold mb-8">
-              Unsere Mission
-            </TextReveal>
-            <TextReveal className="text-3xl font-medium">
-              Innovative Sicherheitskonzepte für Arbeitssicherheit!
-            </TextReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">Sicherheit</h3>
-              <p className="text-gray-600">
-                Maximale Sicherheit durch innovative Konzepte und modernste Technologien.
-              </p>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">Effizienz</h3>
-              <p className="text-gray-600">
-                Optimierte Prozesse für höchste Effizienz und Produktivität.
-              </p>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">Innovation</h3>
-              <p className="text-gray-600">
-                Kontinuierliche Weiterentwicklung und zukunftsweisende Lösungen.
-              </p>
+      {/* Content Container */}
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section className="min-h-screen flex items-center bg-[#001b4e]/50 text-white py-24 relative">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl">
+              <TextReveal className="text-5xl font-bold mb-8">
+                Unsere Mission
+              </TextReveal>
+              <TextReveal className="text-3xl font-medium">
+                Innovative Sicherheitskonzepte für Arbeitssicherheit!
+              </TextReveal>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="bg-[#001b4e] text-white py-24">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8">Bereit für die Zukunft?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Lassen Sie uns gemeinsam Ihre Sicherheitskonzepte optimieren.
-          </p>
-          <Link 
-            href="/contact" 
-            className="inline-flex items-center bg-[#cc000f] text-white px-8 py-4 rounded-lg hover:bg-[#a3000d] transition-colors"
-          >
-            Kontakt aufnehmen
-            <ChevronRight className="ml-2" />
-          </Link>
-        </div>
-      </section>
+        {/* Features Section */}
+        <section className="py-24 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Feature 1 */}
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4">Sicherheit</h3>
+                <p className="text-gray-600">
+                  Maximale Sicherheit durch innovative Konzepte und modernste Technologien.
+                </p>
+              </div>
+
+              {/* Feature 2 */}
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4">Effizienz</h3>
+                <p className="text-gray-600">
+                  Optimierte Prozesse für höchste Effizienz und Produktivität.
+                </p>
+              </div>
+
+              {/* Feature 3 */}
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4">Innovation</h3>
+                <p className="text-gray-600">
+                  Kontinuierliche Weiterentwicklung und zukunftsweisende Lösungen.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="bg-[#001b4e] text-white py-24">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-4xl font-bold mb-8">Bereit für die Zukunft?</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto">
+              Lassen Sie uns gemeinsam Ihre Sicherheitskonzepte optimieren.
+            </p>
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center bg-[#cc000f] text-white px-8 py-4 rounded-lg hover:bg-[#a3000d] transition-colors"
+            >
+              Kontakt aufnehmen
+              <ChevronRight className="ml-2" />
+            </Link>
+          </div>
+        </section>
+      </div>
 
       {/* Timeline Section */}
       <section className="bg-[#f1f2f3] py-16">

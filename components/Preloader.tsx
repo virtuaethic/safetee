@@ -84,38 +84,41 @@ export const Preloader = () => {
 
   return (
     <>
-      {/* 3D Cube Container */}
-      <div 
-        ref={cubeRef}
-        className="fixed inset-0"
-      >
-        {/* Preloader Video (Front face) */}
+      {/* Fixed Video Container */}
+      <div className="fixed inset-0 z-0">
+        {/* 3D Cube Container */}
         <div 
-          ref={preloaderRef}
-          className="absolute inset-0 z-50 bg-black"
-          style={{ transform: 'translateZ(0)' }}
-        >
-          <video
-            className="h-full w-full object-cover"
-            src="/videos/safetee-preloader.mp4"
-            autoPlay
-            muted
-            playsInline
-          />
-        </div>
-
-        {/* Hero Video (Right face) */}
-        <div 
-          ref={heroRef}
+          ref={cubeRef}
           className="absolute inset-0"
-          style={{ transform: 'rotateY(90deg) translateZ(0)' }}
         >
-          <video
-            className="absolute inset-0 h-full w-full object-cover"
-            src="/videos/home-hero.mov"
-            muted
-            playsInline
-          />
+          {/* Preloader Video (Front face) */}
+          <div 
+            ref={preloaderRef}
+            className="absolute inset-0 z-50 bg-black"
+            style={{ transform: 'translateZ(0)' }}
+          >
+            <video
+              className="h-full w-full object-cover"
+              src="/videos/safetee-preloader.mp4"
+              autoPlay
+              muted
+              playsInline
+            />
+          </div>
+
+          {/* Hero Video (Right face) */}
+          <div 
+            ref={heroRef}
+            className="absolute inset-0"
+            style={{ transform: 'rotateY(90deg) translateZ(0)' }}
+          >
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              src="/videos/home-hero.mov"
+              muted
+              playsInline
+            />
+          </div>
         </div>
       </div>
 
