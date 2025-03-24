@@ -35,6 +35,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", "Arial", "sans-serif"],
+        'berthold-akzidenz': ['var(--font-berthold-akzidenz)'],
+        'avantgarde': ['var(--font-avantgarde)'],
       },
       borderRadius: {
         lg: "var(--radius)",
