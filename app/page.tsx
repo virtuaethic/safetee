@@ -15,10 +15,10 @@ export default function Home() {
         <section className="min-h-screen flex items-center justify-center text-white py-24 relative">
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center opacity-0" id="hero-content">
-              <TextReveal className="text-6xl md:text-7xl font-bold mb-12 tracking-tight">
-                Unsere Mission
+              <TextReveal className="text-6xl md:text-7xl font-bold mb-12 tracking-tight uppercase">
+                <h1>Unsere Mission</h1>
               </TextReveal>
-              <TextReveal className="text-3xl md:text-4xl font-medium tracking-wide">
+              <TextReveal className="text-3xl md:text-4xl font-medium tracking-wide uppercase">
                 Innovative Sicherheitskonzepte für Arbeitssicherheit!
               </TextReveal>
             </div>

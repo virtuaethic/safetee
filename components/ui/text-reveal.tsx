@@ -22,7 +22,7 @@ export const TextReveal = ({ children, className = '' }: TextRevealProps) => {
     const originalText = text.textContent || '';
     text.textContent = '';
     
-    // Split text into words and spaces
+    // Split text into words and spaces, preserving spaces
     const words = originalText.split(/(\s+)/);
     
     words.forEach((word, i) => {
@@ -31,6 +31,7 @@ export const TextReveal = ({ children, className = '' }: TextRevealProps) => {
       span.style.opacity = '0';
       span.style.display = 'inline-block';
       span.style.transform = 'translateY(30px)';
+      span.style.whiteSpace = 'pre'; // Preserve spaces
       text.appendChild(span);
 
       gsap.to(span, {
