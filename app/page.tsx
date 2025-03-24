@@ -13,9 +13,8 @@ export default function Home() {
       <div className="relative z-10">
         {/* Hero Section */}
         <section className="min-h-screen flex items-center text-white py-24 relative">
-          <div className="absolute inset-0 bg-[#001b4e]/50 z-0" />
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl opacity-0" id="hero-content">
               <TextReveal className="text-5xl font-bold mb-8">
                 Unsere Mission
               </TextReveal>

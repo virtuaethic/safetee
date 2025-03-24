@@ -9,7 +9,6 @@ export const Preloader = () => {
   const preloaderRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLElement>(null);
-  const cubeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Initially hide the header and disable scrolling
@@ -21,19 +20,11 @@ export const Preloader = () => {
     }
     document.body.style.overflow = 'hidden';
 
-    // Set initial 3D perspective and cube position
-    if (cubeRef.current) {
-      gsap.set(cubeRef.current, {
-        perspective: 1000,
-        transformStyle: 'preserve-3d'
-      });
-    }
-
     // Set timeout for preloader
     const timer = setTimeout(() => {
       setIsLoading(false);
       
-      // Create the cube rotation animation
+      // Create the transition animation
       const tl = gsap.timeline({
         onComplete: () => {
           // Start playing hero video
@@ -46,25 +37,29 @@ export const Preloader = () => {
         }
       });
 
-      // Animate the cube rotation
-      tl.to(cubeRef.current, {
-        rotationY: 90,
-        duration: 2,
+      // Fade out preloader video
+      tl.to(preloaderRef.current, {
+        opacity: 0,
+        duration: 1,
         ease: 'power2.inOut',
-        onUpdate: () => {
-          // Update video opacity based on rotation
-          const rotation = gsap.getProperty(cubeRef.current, 'rotationY') as number;
-          const preloaderOpacity = Math.cos(rotation * Math.PI / 180);
-          const heroOpacity = Math.sin(rotation * Math.PI / 180);
-          
+        onComplete: () => {
+          // Hide preloader video after fade out
           if (preloaderRef.current) {
-            gsap.set(preloaderRef.current, { opacity: preloaderOpacity });
-          }
-          if (heroRef.current) {
-            gsap.set(heroRef.current, { opacity: heroOpacity });
+            preloaderRef.current.style.display = 'none';
           }
         }
       });
+
+      // Fade in hero video
+      tl.fromTo(heroRef.current, 
+        { opacity: 0 },
+        { 
+          opacity: 1,
+          duration: 1,
+          ease: 'power2.inOut'
+        },
+        '-=1' // Start at the same time as preloader fade out
+      );
 
       // Start header animation
       gsap.to(headerRef.current, {
@@ -72,6 +67,14 @@ export const Preloader = () => {
         y: 0,
         duration: 1,
         delay: -1.5,
+        ease: 'power2.out'
+      });
+
+      // Fade in hero content after video transition
+      gsap.to('#hero-content', {
+        opacity: 1,
+        duration: 1,
+        delay: 1,
         ease: 'power2.out'
       });
     }, 5000);
@@ -86,39 +89,31 @@ export const Preloader = () => {
     <>
       {/* Fixed Video Container */}
       <div className="fixed inset-0 z-0">
-        {/* 3D Cube Container */}
+        {/* Preloader Video */}
         <div 
-          ref={cubeRef}
-          className="absolute inset-0"
+          ref={preloaderRef}
+          className="absolute inset-0 z-50 bg-black"
         >
-          {/* Preloader Video (Front face) */}
-          <div 
-            ref={preloaderRef}
-            className="absolute inset-0 z-50 bg-black"
-            style={{ transform: 'translateZ(0)' }}
-          >
-            <video
-              className="h-full w-full object-cover"
-              src="/videos/safetee-preloader.mp4"
-              autoPlay
-              muted
-              playsInline
-            />
-          </div>
+          <video
+            className="h-full w-full object-cover"
+            src="/videos/safetee-preloader.mp4"
+            autoPlay
+            muted
+            playsInline
+          />
+        </div>
 
-          {/* Hero Video (Right face) */}
-          <div 
-            ref={heroRef}
-            className="absolute inset-0"
-            style={{ transform: 'rotateY(90deg) translateZ(0)' }}
-          >
-            <video
-              className="absolute inset-0 h-full w-full object-cover"
-              src="/videos/home-hero.mov"
-              muted
-              playsInline
-            />
-          </div>
+        {/* Hero Video */}
+        <div 
+          ref={heroRef}
+          className="absolute inset-0 opacity-0"
+        >
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            src="/videos/home-hero.mov"
+            muted
+            playsInline
+          />
         </div>
       </div>
 
