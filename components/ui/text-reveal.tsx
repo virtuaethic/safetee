@@ -18,20 +18,25 @@ export const TextReveal = ({ children, className = '' }: TextRevealProps) => {
     const text = textRef.current;
     if (!text) return;
 
-    const chars = text.textContent?.split('') || [];
+    // Store original text
+    const originalText = text.textContent || '';
     text.textContent = '';
     
-    chars.forEach((char, i) => {
+    // Create spans for each character
+    originalText.split('').forEach((char, i) => {
       const span = document.createElement('span');
       span.textContent = char;
       span.style.opacity = '0';
       span.style.display = 'inline-block';
+      span.style.transform = 'translateY(20px)';
       text.appendChild(span);
 
       gsap.to(span, {
         opacity: 1,
-        duration: 0.05,
+        y: 0,
+        duration: 0.5,
         delay: i * 0.05,
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: text,
           start: 'top 80%',

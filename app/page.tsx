@@ -12,8 +12,9 @@ export default function Home() {
       {/* Content Container */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center bg-[#001b4e]/50 text-white py-24 relative">
-          <div className="container mx-auto px-4">
+        <section className="min-h-screen flex items-center text-white py-24 relative">
+          <div className="absolute inset-0 bg-[#001b4e]/50 z-0" />
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl">
               <TextReveal className="text-5xl font-bold mb-8">
                 Unsere Mission
@@ -26,7 +27,7 @@ export default function Home() {
         </section>
 
         {/* Features Section */}
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-white relative z-10">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Feature 1 */}
@@ -57,7 +58,7 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-[#001b4e] text-white py-24">
+        <section className="bg-[#001b4e] text-white py-24 relative z-10">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl font-bold mb-8">Bereit für die Zukunft?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
