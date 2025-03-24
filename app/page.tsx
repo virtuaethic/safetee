@@ -14,13 +14,13 @@ export default function Home() {
         {/* Hero Section */}
         <section className="min-h-screen flex items-center justify-center text-white py-24 relative">
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center opacity-0" id="hero-content">
-              <TextReveal className="text-7xl md:text-8xl font-bold mb-12 tracking-tight uppercase font-berthold-akzidenz">
-                <h1>Unsere Mission</h1>
-              </TextReveal>
-              <TextReveal className="text-3xl md:text-4xl font-medium tracking-wide uppercase font-berthold-akzidenz">
-                Innovative Sicherheitskonzepte für Arbeitssicherheit!
-              </TextReveal>
+            <div className="max-w-4xl mx-auto text-center" id="hero-content">
+              <h1 className="text-7xl md:text-8xl font-bold mb-12 tracking-tight uppercase font-berthold-akzidenz">
+                <TextReveal>Unsere Mission</TextReveal>
+              </h1>
+              <div className="text-3xl md:text-4xl font-medium tracking-wide uppercase font-berthold-akzidenz">
+                <TextReveal>Innovative Sicherheitskonzepte für Arbeitssicherheit!</TextReveal>
+              </div>
             </div>
           </div>
         </section>
